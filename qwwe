@@ -1,0 +1,55 @@
+#include <iostream>
+#include<cmath>
+
+int main()
+{
+    for (int  i= 0; i<10;++i)
+    std::cout << i<<char(i) <<std::endl;
+
+// Zadacha 2
+    unsigned char a;
+    std::cin>>a;
+    if ((a>47) && (a<58))
+       std::cout<<"Vvedena cifra"<<std::endl;
+    else if ((a>=65) && (a<=90))
+       std::cout<<"Vvedena bykva"<<std::endl;
+    else if ((a>=97) && (a<=122))
+       std::cout<<"Vvedena bykovka"<<std::endl;
+    else std::cout<<"Neuzvestno"<<std::endl;
+// Zadacha 3
+    int x;
+    std::cin>>x;
+    switch(x%4) {
+        case 0:
+            std::cout << -1<<std::endl;
+            break;
+        case 1:
+            std::cout << x<<std::endl;
+            break;
+        case 2:
+            std::cout << 1 / x<<std::endl;
+            break;
+        case 3 :
+            std::cout << -x<<std::endl;
+            break;
+    }
+    // Zadacha 4
+    int n1,i;
+    float y,g;
+    double s,z;
+    std::cin>>y;
+    g=0.01;
+    s=0;
+    z=log(1+y);
+    for(i=0;i<5;++i) {
+        n1=0;
+        while (std::abs(z-s) > g) {
+            n1 += 1;
+            s +=pow(-1, n1 + 1) * pow(y, n1) / n1;
+        }
+        std::cout << n1;
+        g = g / 10;
+    }
+
+    return 0;
+}
